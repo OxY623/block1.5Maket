@@ -1,16 +1,246 @@
+
+.block-services {
+    background: rgb(248, 248, 248);
+}
+
+.block-services__title-text {
+    color: rgb(126, 126, 130);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+/*CARDS*/
+
+.block-services__cards-item {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.block-services__cards-link {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*justify-content: space-around;*/
+    justify-content: flex-end;
+    /*padding: 20px 16px;*/
+    padding: 16px;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+    /*background: rgb(255, 255, 255);*/
+    background-repeat: no-repeat;
+    background-position: 10% center;
+
+}
+
+/*BUTTON*/
+.button {
+    color: rgb(27, 28, 33);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.button::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 9px;
+    background-image: url('../images/expand.svg');
+    position: relative;
+    top: 5px;
+}
+
+
 /* Стили для мобильных устройств */
-@media only screen and (max-width: 600px) {
-    .list li {
-        display: none;
+@media only screen and (max-width: 767px) {
+    /*@import url('https://unpkg.com/swiper/swiper-bundle.min.css');*/
+    /*.block-services {*/
+    /*    width: 320px;*/
+    /*    height: 234px;*/
+    /*}*/
+
+
+
+    .block-services__swiper{
+        display: inline-block;
+        position: relative;
+        left:50%;
     }
-    .block.expanded .list li {
-        display: block;
+
+    .block-services__title--padding {
+        padding: 16px;
+    }
+
+    .block-services__cards--padding {
+        padding: 16px;
+        padding-right: 0;
+        padding-top: 0;
+    }
+
+    .list {
+        width: 100%;
+        position: relative;
+        display: flex;
+        /*overflow-x: auto;*/
+        /*overflow-x: hidden;*/
+        gap: 16px;
+        flex-wrap: nowrap;
+        height: 90px;
+        /*left: -12px;*/
+    }
+    .list::-webkit-scrollbar {
+        display: none;  /* Скрытие полосы прокрутки в Chrome, Safari и Opera */
+    }
+
+    .block-services__cards::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 100%;
+        background: linear-gradient(to right, rgba(248, 248, 248, 0), rgb(248, 248, 248)); /* Градиент справа налево */
+        pointer-events: none; /* Чтобы псевдоэлемент не перехватывал события мыши */
+    }
+
+
+    .list--distance > * {
+        flex: 0 0 auto;
+        width: 240px !important;
+
+    }
+
+    /*.swiper-slide {*/
+    /*    width:240px !important;*/
+    /*    flex-shrink: 0;*/
+    /*}*/
+
+    /*.list--distance:first-child {*/
+    /*    padding-left: 12px;*/
+    /*}*/
+    /*CARDS*/
+    .block-services__cards-item {
+        width: 224px !important;
+        height: 72px !important;
+    }
+
+    /*BUTTON*/
+    .button--disable {
+        display: none;
     }
 }
 
 /* Стили для десктопных устройств */
-@media only screen and (min-width: 601px) {
-    .block.expanded .list li {
-        display: list-item;
+@media only screen and (min-width: 767px)  {
+
+    /*.block-services {*/
+    /*    width: 768px;*/
+    /*    height: 322px;*/
+    /*}*/
+
+    .block-services__swiper{
+        display: none;
+    }
+
+    .block-services__title--padding {
+        padding: 16px 24px;
+    }
+
+    .block-services__cards--padding {
+        padding: 24px;
+        padding-top: 8px;
+        padding-bottom: 34px;
+    }
+
+    .list {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, 224px) !important;
+    }
+    .block-services__cards::after {
+        display: none;
+    }
+
+    .list--distance {
+        grid-column-gap: 24px;
+        grid-row-gap: 16px;
+    }
+
+
+    .block-services__cards-item {
+        width: 224px !important;
+        height: 72px !important;
+    }
+
+    .block-services__cards-list {
+
+        max-height: 164px; /* Высота для отображения двух рядов ссылок */
+        overflow: hidden;
+    }
+
+    .block-services__cards-list.expanded {
+        overflow: visible;
+        max-height: 255px; /* Отмена максимальной высоты при развернутом состоянии */
+    }
+
+
+    /*BUTTON*/
+    .block-services__button{
+        margin-top: 24px;
+    }
+    .button--disable {
+        display: initial;
     }
 }
+
+/* Стили для больших мониторов */
+@media only screen and (min-width: 1120px) {
+    /*.block-services {*/
+    /*    width: 1121px;*/
+    /*    height: 322px;*/
+    /*}*/
+
+    .block-services__title--padding {
+        padding: 16px 32px;
+    }
+
+    .block-services__cards--padding {
+        padding: 24px;
+    }
+
+    .list {
+        grid-template-columns: repeat(auto-fill, 240px);
+
+    }
+
+    .list--distance {
+        grid-column-gap: 16px;
+        grid-row-gap: 32px;
+    }
+
+
+    .block-services__cards-item {
+        width: 240px;
+        height: 72px;
+    }
+}
+

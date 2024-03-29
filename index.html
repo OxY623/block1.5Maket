@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ремонт техники различных брендов</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    >
     <link rel="stylesheet" href="assets/css/normalize/normalize.css">
     <link rel="stylesheet" href="assets/css/normalize/reset/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
 <body>
-<aside class="block">
-    <h2>Ремонт техники различных брендов</h2>
-    <ul class="list">
-        <li>Ссылка 1</li>
-        <li>Ссылка 2</li>
-        <li>Ссылка 3</li>
+<aside class="block-services block">
+    <header class="block-services__title block-services__title--padding">
+        <h2 class="block-services__title-text">Ремонт техники различных брендов</h2>
+    </header>
 
-    </ul>
+    <div class="block-services__cards block-services__cards--padding swiper-container">
+        <ul class="block-services__cards-list list list--distance swiper-wrapper">
+            <!-- Здесь отрисованны карточки -->
+        </ul>
 
-    <swiper-container>
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide ...</swiper-slide>
-    </swiper-container>
+        <div class="swiper-pagination block-services__swiper"></div> <!-- Пагинация -->
 
 
-    <button id="toggleButton">Показать все</button>
+        <button class="button block-services__button button--disable" id="toggleButton">Показать все</button>
+    </div>
+
 </aside>
-<script src="assets/js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
+<script src="assets/js/script.js"></script>
 
 </body>
 </html>
