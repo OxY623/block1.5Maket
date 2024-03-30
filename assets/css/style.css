@@ -1,7 +1,8 @@
 .block-services {
     background: rgb(248, 248, 248);
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    min-height: 100vh;
 }
 
 .block-services__title-text {
