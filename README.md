@@ -30,6 +30,6 @@
 ## Дополнительная информация
 
 - Репозиторий проекта на GitHub: https://github.com/OxY623/block1.5Maket
-- GitHub Pages: 
+- GitHub Pages: https://oxy623.github.io/block1.5Maket/
 - Макет: https://www.figma.com/file/7Aydx1qy2l56BJYrIDlHFq/%D0%91%D0%BB%D0%BE%D0%BA-1.5%3A-JavaScript-%D0%B2-%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B5?node-id=0%3A312&t=dGww9JjOvv9cuZX8-1
 
