@@ -1,6 +1,7 @@
-
 .block-services {
     background: rgb(248, 248, 248);
+    width: 100%;
+    height: 100%;
 }
 
 .block-services__title-text {
@@ -19,6 +20,9 @@
     padding: 0;
     margin: 0;
     list-style: none;
+}
+.block-services__cards{
+    position: relative;
 }
 
 .block-services__cards-link {
@@ -56,7 +60,6 @@
     align-items: center;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    align-items: center;
 }
 
 .button::before {
@@ -68,12 +71,17 @@
     background-image: url('../images/expand.svg');
     position: relative;
     top: 5px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+/*Разворот кнопки*/
+.button.expanded::before {
+    transform: rotate(180deg);
 }
 
 
 /* Стили для мобильных устройств */
 @media only screen and (max-width: 767px) {
-    /*@import url('https://unpkg.com/swiper/swiper-bundle.min.css');*/
     /*.block-services {*/
     /*    width: 320px;*/
     /*    height: 234px;*/
@@ -81,11 +89,11 @@
 
 
 
-    .block-services__swiper{
-        display: inline-block;
-        position: relative;
-        left:50%;
-    }
+    /*.block-services__swiper{*/
+    /*    display: inline-block;*/
+    /*    position: relative;*/
+    /*    left:50%;*/
+    /*}*/
 
     .block-services__title--padding {
         padding: 16px;
@@ -108,19 +116,20 @@
         height: 90px;
         /*left: -12px;*/
     }
-    .list::-webkit-scrollbar {
-        display: none;  /* Скрытие полосы прокрутки в Chrome, Safari и Opera */
-    }
+    /*.list::-webkit-scrollbar {*/
+    /*    display: none;  */
+    /*}*/
 
     .block-services__cards::after {
         content: "";
-        position: fixed;
+        position: absolute;
+        z-index:99;
         top: 0;
         right: 0;
         width: 20px;
         height: 100%;
-        background: linear-gradient(to right, rgba(248, 248, 248, 0), rgb(248, 248, 248)); /* Градиент справа налево */
-        pointer-events: none; /* Чтобы псевдоэлемент не перехватывал события мыши */
+        background: linear-gradient(to right, rgba(248, 248, 248, 0), rgb(248, 248, 248));
+        pointer-events: none;
     }
 
 
@@ -138,6 +147,8 @@
     /*.list--distance:first-child {*/
     /*    padding-left: 12px;*/
     /*}*/
+
+
     /*CARDS*/
     .block-services__cards-item {
         width: 224px !important;
@@ -181,8 +192,8 @@
     }
 
     .list--distance {
-        grid-column-gap: 24px;
-        grid-row-gap: 16px;
+        grid-column-gap:24px ;
+        grid-row-gap: 16px ;
     }
 
 
@@ -192,14 +203,14 @@
     }
 
     .block-services__cards-list {
-
         max-height: 164px; /* Высота для отображения двух рядов ссылок */
         overflow: hidden;
+        transition: max-height 1s ease;
     }
 
     .block-services__cards-list.expanded {
         overflow: visible;
-        max-height: 255px; /* Отмена максимальной высоты при развернутом состоянии */
+        max-height: initial;
     }
 
 
@@ -207,6 +218,7 @@
     .block-services__button{
         margin-top: 24px;
     }
+
     .button--disable {
         display: initial;
     }
@@ -233,8 +245,8 @@
     }
 
     .list--distance {
-        grid-column-gap: 16px;
-        grid-row-gap: 32px;
+        grid-column-gap: 32px ;
+        grid-row-gap: 16px;
     }
 
 

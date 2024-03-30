@@ -41,39 +41,5 @@ for (let i = 0; i < dataCardList.length; i++) {
     createCard(dataCardList[i].url, dataCardList[i].ariaLabel);
 }
 
-// Инициализация Swiper только на устройствах до 768px
-if (window.matchMedia("(max-width: 767px)").matches) {
-    const swiper = new Swiper('.block-services__cards', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.getElementById('toggleButton');
-    const blockServices = document.querySelector('.block-services__cards-list');
-
-    let isExpanded = false; // Переменная для отслеживания текущего состояния (развернуто/свернуто)
-
-    toggleButton.addEventListener('click', function () {
-        isExpanded = !isExpanded; // Изменяем состояние при каждом клике
-
-        if (isExpanded) {
-            // Если состояние - развернуто, показываем все ссылки и меняем текст кнопки на "Скрыть"
-            blockServices.classList.add('expanded');
-            toggleButton.textContent = 'Скрыть';
-        } else {
-            // Если состояние - свернуто, скрываем ссылки сверху и меняем текст кнопки на "Показать все"
-            blockServices.classList.remove('expanded');
-            toggleButton.textContent = 'Показать все';
-        }
-    });
-});
 
 
