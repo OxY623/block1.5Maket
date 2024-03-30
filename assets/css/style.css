@@ -110,7 +110,7 @@
         position: relative;
         display: flex;
         /*overflow-x: auto;*/
-        /*overflow-x: hidden;*/
+        overflow-x: hidden;
         gap: 16px;
         flex-wrap: nowrap;
         height: 90px;

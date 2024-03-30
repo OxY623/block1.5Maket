@@ -1,3 +1,4 @@
+if (window.matchMedia("(min-width: 767px)").matches){
 let Button = document.querySelector('button');
 Button.addEventListener('click', function () {
     let blockServices = document.querySelector('.block-services__cards-list');
@@ -21,3 +22,5 @@ Button.addEventListener('click', function () {
 
     }
 });
+
+}
