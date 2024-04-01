@@ -1,8 +1,8 @@
 .block-services {
     background: rgb(248, 248, 248);
     width: 100%;
-    /*height: 100%;*/
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .block-services__title-text {
@@ -15,15 +15,14 @@
     text-transform: uppercase;
 }
 
-/*CARDS*/
+/*.block-services__cards{*/
+/*    width: 100% !important;*/
+/*}*/
 
 .block-services__cards-item {
     padding: 0;
     margin: 0;
     list-style: none;
-}
-.block-services__cards{
-    position: relative;
 }
 
 .block-services__cards-link {
@@ -31,36 +30,27 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    /*justify-content: space-around;*/
     justify-content: flex-end;
-    /*padding: 20px 16px;*/
     padding: 16px;
     border: 1px solid rgb(234, 234, 234);
+    background: rgb(255, 255, 255);
     border-radius: 6px;
-    /*background: rgb(255, 255, 255);*/
     background-repeat: no-repeat;
     background-position: 10% center;
-
 }
 
-/*BUTTON*/
 .button {
     color: rgb(27, 28, 33);
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     text-align: left;
-    background-color: transparent;
+    /*background-color: transparent;*/
     border: none;
     cursor: pointer;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
+    transition: all 0.5s;
 }
 
 .button::before {
@@ -73,28 +63,23 @@
     position: relative;
     top: 5px;
     transform: rotate(0deg);
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease-in-out;
 }
-/*Разворот кнопки*/
+
 .button.expanded::before {
     transform: rotate(180deg);
 }
 
 
-/* Стили для мобильных устройств */
 @media only screen and (max-width: 767px) {
-    /*.block-services {*/
-    /*    width: 320px;*/
-    /*    height: 234px;*/
-    /*}*/
-
-
-
-    /*.block-services__swiper{*/
-    /*    display: inline-block;*/
-    /*    position: relative;*/
-    /*    left:50%;*/
-    /*}*/
+    .swiper-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        box-sizing: content-box;
+    }
 
     .block-services__title--padding {
         padding: 16px;
@@ -107,70 +92,57 @@
     }
 
     .list {
-        width: 100%;
-        position: relative;
-        display: flex;
-        /*overflow-x: auto;*/
-        /*overflow-x: hidden;*/
-        gap: 16px;
-        flex-wrap: nowrap;
-        height: 90px;
-        /*left: -12px;*/
+        /*width: 100%;*/
+        /*display: flex;*/
+        /*gap: 16px;*/
+        /*flex-wrap: nowrap;*/
+        /*height: 90px;*/
     }
-    /*.list::-webkit-scrollbar {*/
-    /*    display: none;  */
-    /*}*/
 
     .block-services__cards::after {
         content: "";
         position: absolute;
-        z-index:99;
+        z-index: 100;
         top: 0;
         right: 0;
         width: 20px;
         height: 100%;
-        background: linear-gradient(to right, rgba(248, 248, 248, 0), rgb(248, 248, 248));
-        pointer-events: none;
+        background: linear-gradient(to right, rgba(248, 248, 248, 0),
+        rgb(248, 248, 248));
+        /*pointer-events: none;*/
     }
-
 
     .list--distance > * {
-        flex: 0 0 auto;
+        /*flex: 0 0 auto;*/
         width: 240px !important;
-
     }
 
-    /*.swiper-slide {*/
-    /*    width:240px !important;*/
-    /*    flex-shrink: 0;*/
-    /*}*/
-
-    /*.list--distance:first-child {*/
-    /*    padding-left: 12px;*/
-    /*}*/
-
-
-    /*CARDS*/
     .block-services__cards-item {
         width: 224px !important;
         height: 72px !important;
     }
 
-    /*BUTTON*/
     .button--disable {
         display: none;
     }
-}
-
-/* Стили для десктопных устройств */
-@media only screen and (min-width: 767px)  {
-
-    /*.block-services {*/
-    /*    width: 768px;*/
-    /*    height: 322px;*/
-    /*}*/
 
     .block-services__swiper{
+        margin-bottom: 10%;
+    }
+
+    .swiper-pagination-bullet-active{
+        background-color: #DDDDDD;
+    ;
+    }
+
+    .swiper-pagination-bullet-active{
+        background-color: #B5B6BC;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .block-services__swiper {
         display: none;
     }
 
@@ -188,15 +160,11 @@
         display: grid !important;
         grid-template-columns: repeat(auto-fill, 224px) !important;
     }
-    .block-services__cards::after {
-        display: none;
-    }
 
     .list--distance {
-        grid-column-gap:24px ;
-        grid-row-gap: 16px ;
+        grid-column-gap: 24px;
+        grid-row-gap: 16px;
     }
-
 
     .block-services__cards-item {
         width: 224px !important;
@@ -204,7 +172,7 @@
     }
 
     .block-services__cards-list {
-        max-height: 164px; /* Высота для отображения двух рядов ссылок */
+        max-height: 164px;
         overflow: hidden;
         transition: max-height 1s ease;
     }
@@ -214,46 +182,8 @@
         max-height: initial;
     }
 
-
-    /*BUTTON*/
-    .block-services__button{
-        margin-top: 24px;
-    }
-
     .button--disable {
         display: initial;
+        margin-top: 24px;
     }
 }
-
-/* Стили для больших мониторов */
-@media only screen and (min-width: 1120px) {
-    /*.block-services {*/
-    /*    width: 1121px;*/
-    /*    height: 322px;*/
-    /*}*/
-
-    .block-services__title--padding {
-        padding: 16px 32px;
-    }
-
-    .block-services__cards--padding {
-        padding: 24px;
-    }
-
-    .list {
-        grid-template-columns: repeat(auto-fill, 240px);
-
-    }
-
-    .list--distance {
-        grid-column-gap: 32px ;
-        grid-row-gap: 16px;
-    }
-
-
-    .block-services__cards-item {
-        width: 240px;
-        height: 72px;
-    }
-}
-

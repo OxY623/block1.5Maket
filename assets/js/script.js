@@ -1,15 +1,15 @@
 let dataCardList = [
     {url: 'assets/images/Bitmap.svg', ariaLabel: 'Выбрать Lenovo'},
-    {url: 'assets/images/Bitmap1.svg', ariaLabel: 'Выбрать Sumsung'},
+    {url: 'assets/images/Bitmap1.svg', ariaLabel: 'Выбрать Samsung'},
     {url: 'assets/images/Bitmap2.svg', ariaLabel: 'Выбрать Apple'},
-    {url: 'assets/images/Bitmap3.svg', ariaLabel: 'Выбрать View-Sonic'},
-    {url: 'assets/images/Bitmap4.svg', ariaLabel: 'Выбрать Bosh'},
+    {url: 'assets/images/Bitmap3.svg', ariaLabel: 'Выбрать ViewSonic'},
+    {url: 'assets/images/Bitmap4.svg', ariaLabel: 'Выбрать Bosch'},
     {url: 'assets/images/Bitmap5.svg', ariaLabel: 'Выбрать HP'},
     {url: 'assets/images/Bitmap6.svg', ariaLabel: 'Выбрать Acer'},
     {url: 'assets/images/Bitmap7.svg', ariaLabel: 'Выбрать Sony'},
     {url: 'assets/images/Bitmap.svg', ariaLabel: 'Выбрать Lenovo'},
-    {url: 'assets/images/Bitmap1.svg', ariaLabel: 'Выбрать Sumsung'},
-    {url: 'assets/images/Bitmap2.svg', ariaLabel: 'Выбрать Apple'}
+    {url: 'assets/images/Bitmap1.svg', ariaLabel: 'Выбрать Samsung'},
+    {url: 'assets/images/Bitmap2.svg', ariaLabel: 'Выбрать Apple'},
 ];
 
 let list = document.querySelector('.block-services__cards-list');
@@ -24,8 +24,6 @@ function createCard(srcLogo, ariaLabel) {
     link.setAttribute('href', '#');
     link.setAttribute('aria-label', ariaLabel);
     link.classList.add('block-services__cards-link');
-    link.style.backgroundColor = 'white';
-    // link.style.width = '240px';
     link.style.backgroundImage = `url(${srcLogo})`;
     card.appendChild(link);
 
@@ -36,10 +34,7 @@ function createCard(srcLogo, ariaLabel) {
     link.appendChild(img_icon);
 }
 
-// Создание 11 карточек
+// Создание карточек
 for (let i = 0; i < dataCardList.length; i++) {
     createCard(dataCardList[i].url, dataCardList[i].ariaLabel);
 }
-
-
-
