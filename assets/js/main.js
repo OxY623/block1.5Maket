@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         link.classList.add('block-services__cards-link');
         // link.style.backgroundColor = 'white';
         // link.style.backgroundImage = `url(${srcLogo})`;
-        link.setAttribute('style',`background-image: url(${srcLogo})`);
+        link.setAttribute('style', `background-image: url(${srcLogo})`);
         card.appendChild(link);
 
         let img_icon = document.createElement('img');
@@ -148,9 +148,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         } else {
-             // swiper.allowTouchMove = false;
-             // swiper.update();
-
+            // swiper.allowTouchMove = false;
+            // swiper.update();
 
 
         }
