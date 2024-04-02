@@ -144,22 +144,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 },
             });
-            // window.location.reload();
-            // swiper.loop = false;
-            // swiper.autoplay = false;
-            // swiper.allowTouchMove = false;
-            // swiper.update();
 
-
-            // list.setAttribute("style","transform:none !important");
-            // list.removeAttribute('id');
 
         } else {
-            // window.location.reload();
-            // swiper.loop = true;
-            // swiper.autoplay = true;
-            // swiper.allowTouchMove = true;
-            // swiper.update();
+             // swiper.allowTouchMove = false;
+             // swiper.update();
+            
+
 
         }
     }
