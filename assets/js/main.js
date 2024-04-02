@@ -47,43 +47,43 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    let swiper = new Swiper(".mySwiper", {
-        loop: true,
-        // slidesPerView: 1.25,
-        slidesPerView: "auto",
-        spaceBetween: 16,
-        slideToClickedSlides: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        grubCursor: true,
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-            pageUpDown: true,
-        },
-        mousewheel: {
-            sensitivity: 1,
-        },
-
-        slideOverflow: true,
-        breakpoints: {
-            375: {
-                spaceBetween: 18,
-            },
-            425: {
-                spaceBetween: 20,
-            },
-            500: {
-                spaceBetween: 24,
-            },
-            700: {
-                spaceBetween: 24,
-            },
-
-        },
-    });
+    // let swiper = new Swiper(".mySwiper", {
+    //     loop: true,
+    //     // slidesPerView: 1.25,
+    //     slidesPerView: "auto",
+    //     spaceBetween: 16,
+    //     slideToClickedSlides: true,
+    //     pagination: {
+    //         el: ".swiper-pagination",
+    //         clickable: true,
+    //     },
+    //     grubCursor: true,
+    //     keyboard: {
+    //         enabled: true,
+    //         onlyInViewport: true,
+    //         pageUpDown: true,
+    //     },
+    //     mousewheel: {
+    //         sensitivity: 1,
+    //     },
+    //
+    //     slideOverflow: true,
+    //     breakpoints: {
+    //         375: {
+    //             spaceBetween: 18,
+    //         },
+    //         425: {
+    //             spaceBetween: 20,
+    //         },
+    //         500: {
+    //             spaceBetween: 24,
+    //         },
+    //         700: {
+    //             spaceBetween: 24,
+    //         },
+    //
+    //     },
+    // });
 
     let Button = document.querySelector('.button');
     Button.addEventListener('click', function () {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-
+    let swiper;
     function changingTheScreenSize() {
         if (openSizes) {
 
@@ -144,14 +144,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
 
                 },
-                allowTouchMove: false,
+                allowTouchMove: true,
+
             });
 
 
         } else {
+            location.reload();
+            $('.mySwiper .swiper-container .swiper-wrapper .swiper-slide').addClass('swiper-no-swiping');
             swiper.allowTouchMove = false;
-            swiper.noSwiping = false;
-            swiper.update();
+            swiper.noSwiping = true;
+            swiper.noSwipingClass = 'swiper-slide';
+            // swiper.update()
 
 
         }
