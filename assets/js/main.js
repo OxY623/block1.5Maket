@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+    let initialScreenWidth = window.innerWidth;
     let openSizes = window.matchMedia("(min-width: 768px)").matches;
     let dataCardList = [
         {url: 'assets/images/Bitmap.svg', ariaLabel: 'Выбрать Lenovo'},
@@ -45,45 +45,46 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < dataCardList.length; i++) {
         createCard(dataCardList[i].url, dataCardList[i].ariaLabel);
     }
-
-
-    let swiper = new Swiper(".mySwiper", {
-        loop: true,
-        // slidesPerView: 1.25,
-        slidesPerView: "auto",
-        spaceBetween: 16,
-        slideToClickedSlides: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        grubCursor: true,
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-            pageUpDown: true,
-        },
-        mousewheel: {
-            sensitivity: 1,
-        },
-
-        slideOverflow: true,
-        breakpoints: {
-            375: {
-                spaceBetween: 18,
+    let swiper;
+    if (initialScreenWidth < 768) {
+        swiper = new Swiper(".mySwiper", {
+            loop: true,
+            // slidesPerView: 1.25,
+            slidesPerView: "auto",
+            spaceBetween: 16,
+            slideToClickedSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
             },
-            425: {
-                spaceBetween: 20,
+            grubCursor: true,
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+                pageUpDown: true,
             },
-            500: {
-                spaceBetween: 24,
-            },
-            700: {
-                spaceBetween: 24,
+            mousewheel: {
+                sensitivity: 1,
             },
 
-        },
-    });
+            slideOverflow: true,
+            breakpoints: {
+                375: {
+                    spaceBetween: 18,
+                },
+                425: {
+                    spaceBetween: 20,
+                },
+                500: {
+                    spaceBetween: 24,
+                },
+                700: {
+                    spaceBetween: 24,
+                },
+
+            },
+        });
+    }
 
     let Button = document.querySelector('.button');
     Button.addEventListener('click', function () {
@@ -108,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function changingTheScreenSize() {
         if (openSizes) {
 
-                swiper = new Swiper(".mySwiper", {
+            swiper = new Swiper(".mySwiper", {
                 loop: true,
                 // slidesPerView: 1.25,
                 slidesPerView: "auto",
