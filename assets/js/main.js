@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             },
         });
-    }
+    } else {swiper = new Swiper;}
 
     let Button = document.querySelector('.button');
     Button.addEventListener('click', function () {
