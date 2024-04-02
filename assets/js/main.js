@@ -143,13 +143,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
 
                 },
+                allowTouchMove: false,
             });
 
 
         } else {
              // swiper.allowTouchMove = false;
              // swiper.update();
-            
+
 
 
         }

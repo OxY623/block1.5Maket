@@ -149,6 +149,14 @@
 
 
 @media only screen and (min-width: 768px) {
+
+    .block-services__cards{
+        height: 100% !important;
+        transform: translate3d(0px, 0, 0) !important;
+
+    }
+
+    
     .block-services__swiper {
         display: none;
     }
@@ -241,9 +249,5 @@
         overflow: hidden;
 
     }
-    .block-services__cards{
-        height: 100% !important;
-        transform: translate3d(0px, 0, 0) !important;
-        transform: translate3d(0px, 0, 0) !important;
-    }
+
 }
