@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let openSises = window.matchMedia("(min-width: 768px)").matches;
+    let openSizes = window.matchMedia("(min-width: 768px)").matches;
     let dataCardList = [
         {url: 'assets/images/Bitmap.svg', ariaLabel: 'Выбрать Lenovo'},
         {url: 'assets/images/Bitmap1.svg', ariaLabel: 'Выбрать Sumsung'},
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function changingTheScreenSize() {
-        if (openSises) {
+        if (openSizes) {
             swiper.destroy();
         } else {
             swiper.init();
