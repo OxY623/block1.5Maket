@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function changingTheScreenSize() {
         if (openSizes) {
 
-            let swiper = new Swiper(".mySwiper", {
+                swiper = new Swiper(".mySwiper", {
                 loop: true,
                 // slidesPerView: 1.25,
                 slidesPerView: "auto",
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         } else {
-            location.reload();
+            window.location.reload();
             $('.mySwiper .swiper-container .swiper-wrapper .swiper-slide').addClass('swiper-no-swiping');
             swiper.allowTouchMove = false;
             swiper.noSwiping = true;
@@ -160,7 +160,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
     }
-
+    changingTheScreenSize();
+    
     window.addEventListener('resize', changingTheScreenSize);
 });
 
