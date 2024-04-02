@@ -72,7 +72,7 @@
 }
 
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     .swiper-wrapper {
         position: relative;
         width: 100%;
@@ -163,6 +163,7 @@
     }
 
     .list {
+        transform: none !important;
         display: grid !important;
         grid-template-columns: repeat(auto-fill, 224px) !important;
     }

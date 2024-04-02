@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.reload();
             swiper.destroy();
             // list.setAttribute("style","transform:none !important");
-            list.removeAttribute('id');;
+            // list.removeAttribute('id');
 
         } else {
             window.location.reload();
