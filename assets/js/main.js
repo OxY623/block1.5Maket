@@ -105,9 +105,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function changingTheScreenSize() {
         if (openSizes) {
+            window.location.reload();
             swiper.destroy();
+            // list.setAttribute("style","transform:none !important");
+            list.removeAttribute('id');;
+
         } else {
+            window.location.reload();
             swiper.init();
+
         }
     }
 
