@@ -45,42 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         createCard(dataCardList[i].url, dataCardList[i].ariaLabel);
     }
 
-    let swiper = new Swiper(".mySwiper", {
-        loop: true,
-        // slidesPerView: 1.25,
-        slidesPerView: "auto",
-        spaceBetween: 16,
-        slideToClickedSlides: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        grubCursor: true,
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-            pageUpDown: true,
-        },
-        mousewheel: {
-            sensitivity: 1,
-        },
 
-        slideOverflow: true,
-        breakpoints: {
-            375: {
-                spaceBetween: 18,
-            },
-            425: {
-                spaceBetween: 20,
-            },
-            500: {
-                spaceBetween: 24,
-            },
-            700: {
-                spaceBetween: 24,
-            },
-        },
-    });
 
 
     let Button = document.querySelector('.button');
@@ -106,13 +71,56 @@ document.addEventListener('DOMContentLoaded', function () {
     function changingTheScreenSize() {
         if (openSizes) {
             window.location.reload();
-            swiper.destroy();
+
+
             // list.setAttribute("style","transform:none !important");
             // list.removeAttribute('id');
 
         } else {
-            window.location.reload();
-            swiper.init();
+            // window.location.reload();
+            let swiper = new Swiper(".mySwiper", {
+                loop: true,
+                // slidesPerView: 1.25,
+                slidesPerView: "auto",
+                spaceBetween: 16,
+                slideToClickedSlides: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                grubCursor: true,
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                    pageUpDown: true,
+                },
+                mousewheel: {
+                    sensitivity: 1,
+                },
+
+                slideOverflow: true,
+                breakpoints: {
+                    375: {
+                        spaceBetween: 18,
+                    },
+                    425: {
+                        spaceBetween: 20,
+                    },
+                    500: {
+                        spaceBetween: 24,
+                    },
+                    700: {
+                        spaceBetween: 24,
+                    },
+                    768: {
+                        spaceBetween: 24,
+                        autoplay:false,
+                        pagination: {
+                            clickable: false,
+                        },
+                    }
+                },
+            });
 
         }
     }
