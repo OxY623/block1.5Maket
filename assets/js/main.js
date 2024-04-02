@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     let openSizes = window.matchMedia("(min-width: 768px)").matches;
     let dataCardList = [
         {url: 'assets/images/Bitmap.svg', ariaLabel: 'Выбрать Lenovo'},
@@ -148,8 +149,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         } else {
-            // swiper.allowTouchMove = false;
-            // swiper.update();
+            swiper.allowTouchMove = false;
+            swiper.noSwiping = false;
+            swiper.update();
 
 
         }
