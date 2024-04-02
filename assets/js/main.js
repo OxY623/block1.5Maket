@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
         link.setAttribute('href', '#');
         link.setAttribute('aria-label', ariaLabel);
         link.classList.add('block-services__cards-link');
-        link.style.backgroundColor = 'white';
-        link.style.backgroundImage = `url(${srcLogo})`;
+        // link.style.backgroundColor = 'white';
+        // link.style.backgroundImage = `url(${srcLogo})`;
+        link.setAttribute('style',`background-image: url(${srcLogo})`);
         card.appendChild(link);
 
         let img_icon = document.createElement('img');
