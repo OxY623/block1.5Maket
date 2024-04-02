@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            grubCursor: true,
+            grabCursor: true,
             keyboard: {
                 enabled: true,
                 onlyInViewport: true,
@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         });
     } else {swiper = new Swiper;}
+
 
     let Button = document.querySelector('.button');
     Button.addEventListener('click', function () {
@@ -148,12 +149,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 allowTouchMove: true,
 
             });
+            window.location.reload();
 
 
         } else {
             window.location.reload();
             $('.mySwiper .swiper-container .swiper-wrapper .swiper-slide').addClass('swiper-no-swiping');
             swiper.allowTouchMove = false;
+
             swiper.noSwiping = true;
             swiper.noSwipingClass = 'swiper-slide';
             // swiper.update()
