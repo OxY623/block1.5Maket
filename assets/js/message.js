@@ -1,7 +1,5 @@
-if (!localStorage.getItem('firstLoad')) {
-    window.alert("Всё готово!!!");
+if (!localStorage.getItem("firstLoad")) {
+  window.alert("Всё готово!!!");
 }
 
-localStorage.setItem('firstLoad', true);
-
-
+localStorage.setItem("firstLoad", true);
