@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     let swiper;
     let blockServices = document.querySelector('.block-services__cards-list');
@@ -39,9 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
         link.appendChild(img_icon);
     }
 
-    // Функция для изменения размера экрана и управления Swiper
-    function adjustScreenSize() {
-        let swiperParams = {
+    // Инициализация swiper
+    function initSwiper() {
+        if (swiper) {
+            swiper.destroy();
+        }
+        swiper = new Swiper(".mySwiper", {
             loop: true,
             slidesPerView: "auto",
             spaceBetween: 16,
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            grubCursor: true,
+            grabCursor: true,
             keyboard: {
                 enabled: true,
                 onlyInViewport: true,
@@ -59,49 +61,46 @@ document.addEventListener('DOMContentLoaded', function () {
             mousewheel: {
                 sensitivity: 1,
             },
-
             slideOverflow: true,
             breakpoints: {
-                375: {
-                    spaceBetween: 18,
-                },
-                425: {
-                    spaceBetween: 20,
-                },
-                500: {
-                    spaceBetween: 24,
-                },
-                700: {
-                    spaceBetween: 24,
-                },
-
+                375: { spaceBetween: 18 },
+                425: { spaceBetween: 20 },
+                500: { spaceBetween: 24 },
+                700: { spaceBetween: 24 },
             },
             allowTouchMove: true,
-        };
-
-        if (swiper) {
-            swiper.destroy();
-        }
-
-        swiper = new Swiper(".mySwiper", swiperParams);
-        swiper.allowTouchMove = false;
-        swiper.noSwiping = true;
-        swiper.noSwipingClass = 'swiper-slide';
+        });
     }
 
+    // Проверка и корректировка поведения swiper в зависимости от ширины экрана
+    function handleScreenSize() {
+        const screenSize = window.innerWidth;
+        if (swiper && screenSize > 767) {
+            swiper.allowTouchMove = false;
+            swiper.destroy();
+            // alert('Testing screen size');
+        }
+    }
 
-
+    // Создание карточек при загрузке страницы
     for (let i = 0; i < dataCardList.length; i++) {
         createCard(dataCardList[i].url, dataCardList[i].ariaLabel);
     }
 
-    adjustScreenSize();
-    window.addEventListener('resize', adjustScreenSize);
+    // Инициализация Swiper при загрузке страницы
+    initSwiper();
+    handleScreenSize();
+
+    // Обработка изменения размера окна
+    window.addEventListener('resize', function() {
+        initSwiper();
+        handleScreenSize();
+    });
 
     // Обработчик кнопки
     button.addEventListener('click', function () {
-        blockServices.classList.toggle('expanded'); // включать или выключать класс
-        button.textContent = blockServices.classList.contains('expanded') ? 'Скрыть' : 'Показать все'; // проверить наличие класса у элемента
-        button.classList.toggle('expanded'); // включать или выключать класс
+        blockServices.classList.toggle('expanded');
+        button.textContent = blockServices.classList.contains('expanded') ? 'Скрыть' : 'Показать все';
+        button.classList.toggle('expanded');
     });
 });
